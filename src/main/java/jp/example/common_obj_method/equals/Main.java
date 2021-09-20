@@ -1,12 +1,14 @@
-package jp.example.common_obj_method.clone.clone;
+package jp.example.common_obj_method.equals;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.SerializationUtils;
+
 public class Main {
 
-    public static void main(String[] args) throws CloneNotSupportedException {
+    public static void main(String[] args) {
 
-        final Clone from = new Clone();
+        final DeepCopy from = new DeepCopy();
 
         from.setNum(1);
         from.setStr("変数１");
@@ -18,7 +20,7 @@ public class Main {
         from.getList().add("リスト要素１");
         from.getList().add("リスト要素２");
 
-        final Clone to = from.clone();
+        final DeepCopy to = SerializationUtils.clone(from);
         System.out.println(to.getNum());
         System.out.println(to.getStr());
         System.out.println(to.getArray()[0]);
@@ -27,6 +29,10 @@ public class Main {
         System.out.println(to.getList().get(1));
 
         System.out.println(Objects.equals(from, to)); // true
+
+        to.setNum(2);
+
+        System.out.println(Objects.equals(from, to)); // false
     }
 
 }

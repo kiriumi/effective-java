@@ -1,4 +1,4 @@
-package jp.example.common_obj_method.clone.deepcopy;
+package jp.example.common_obj_method.equals;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString
 public class Hoge {
 
+    // 定数はToStringで表示されないので注意
     public static final String CONST = "定数";
 
     @Getter

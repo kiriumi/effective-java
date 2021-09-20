@@ -3,11 +3,13 @@ package jp.example.common_obj_method.clone.clone;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 @ToString
+@EqualsAndHashCode
 public class Clone implements Cloneable {
 
     @Getter
