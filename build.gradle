@@ -1,0 +1,12 @@
+plugins {
+    id 'java'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+tasks.withType(JavaCompile) {options.encoding = 'UTF-8'}
+repositories.mavenCentral()
+
+dependencies {
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+}
