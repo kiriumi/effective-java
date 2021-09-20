@@ -27,6 +27,5 @@ public class Main2 {
         persons.sort(COMPARATOR);
 
         persons.forEach(System.out::println);
-
     }
 }
