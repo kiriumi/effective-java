@@ -1,4 +1,4 @@
-package jp.example.obj_lifecycle.builder.etc;
+package jp.example.obj_lifecycle.builder.javabeans;
 
 import java.time.LocalDate;
 
