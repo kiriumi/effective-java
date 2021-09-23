@@ -5,7 +5,7 @@ import java.util.Comparator;
 import lombok.Value;
 
 @Value
-public class Person implements Comparable<Person> {
+class Person implements Comparable<Person> {
 
     private String name;
     private int age;

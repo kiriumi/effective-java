@@ -11,7 +11,7 @@ import lombok.ToString;
 
 @ToString
 @EqualsAndHashCode
-public class DeepCopy implements Serializable {
+class DeepCopy implements Serializable {
 
     @Getter
     @Setter

@@ -1,6 +1,6 @@
 package jp.example.obj_lifecycle.singleton.factory_method;
 
-public class Singleton {
+class Singleton {
 
     private static final Singleton INSTANCE = new Singleton();
 

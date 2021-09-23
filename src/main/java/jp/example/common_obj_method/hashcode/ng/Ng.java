@@ -10,7 +10,7 @@ import lombok.ToString;
  *
  */
 @ToString
-public class Ng implements Serializable {
+class Ng implements Serializable {
 
     @Getter
     private final String name;

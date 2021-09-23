@@ -12,7 +12,7 @@ import lombok.ToString;
  */
 @ToString
 @EqualsAndHashCode
-public class Ok implements Serializable {
+class Ok implements Serializable {
 
     @Getter
     private final String name;

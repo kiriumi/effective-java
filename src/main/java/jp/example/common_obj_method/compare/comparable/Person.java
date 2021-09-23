@@ -3,7 +3,7 @@ package jp.example.common_obj_method.compare.comparable;
 import lombok.Value;
 
 @Value
-public class Person implements Comparable<Person> {
+class Person implements Comparable<Person> {
 
     private String name;
     private int age;

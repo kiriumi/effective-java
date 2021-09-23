@@ -10,7 +10,7 @@ import lombok.ToString;
 
 @ToString
 @EqualsAndHashCode
-public class Clone implements Cloneable {
+class Clone implements Cloneable {
 
     @Getter
     @Setter

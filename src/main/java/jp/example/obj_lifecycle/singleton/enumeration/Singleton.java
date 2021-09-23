@@ -1,6 +1,6 @@
 package jp.example.obj_lifecycle.singleton.enumeration;
 
-public enum Singleton {
+enum Singleton {
 
     INSTANCE;
 

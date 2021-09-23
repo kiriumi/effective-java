@@ -10,7 +10,7 @@ import lombok.ToString;
 
 @ToString
 @EqualsAndHashCode
-public class CopyConstructor {
+class CopyConstructor {
 
     @Getter
     @Setter

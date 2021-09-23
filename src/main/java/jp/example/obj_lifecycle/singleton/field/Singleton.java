@@ -1,6 +1,6 @@
 package jp.example.obj_lifecycle.singleton.field;
 
-public class Singleton {
+class Singleton {
 
     static final Singleton INSTANCE = new Singleton();
 
