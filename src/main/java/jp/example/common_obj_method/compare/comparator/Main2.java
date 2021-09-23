@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import jp.example.common_obj_method.compare.comparator_builder.Person;
-
 public class Main2 {
 
     private static final Comparator<Person> COMPARATOR = Comparator
