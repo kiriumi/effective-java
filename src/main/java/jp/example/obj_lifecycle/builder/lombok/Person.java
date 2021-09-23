@@ -1,7 +1,5 @@
 package jp.example.obj_lifecycle.builder.lombok;
 
-import java.time.LocalDate;
-
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
@@ -10,24 +8,18 @@ import lombok.ToString;
 @Builder
 @ToString
 @EqualsAndHashCode
-public class Person {
+class Person {
 
     @NonNull
     private final String name;
 
     @NonNull
-    private final LocalDate birthday;
+    private final String email;
 
     @Builder.Default
-    private final int sexCode = 0;
+    private final String telNo = "";
 
     @Builder.Default
-    private final String email = "";
-
-    @Builder.Default
-    private final String tel = "";
-
-    @Builder.Default
-    private final String addressNum = "";
+    private final String postalCode = "";
 
 }

@@ -1,67 +1,70 @@
 package jp.example.obj_lifecycle.builder;
 
-import java.time.LocalDate;
-
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @ToString
 @EqualsAndHashCode
-public class Person {
+class Person {
 
     private final String name;
-    private final LocalDate birthday;
-    private int sexCode = 0;
     private final String email;
-    private final String tel;
-    private final String addressNum;
+    private final String telNo;
+    private final String postalCode;
+    private final String region;
+    private final String locality;
 
     private Person(Builder builder) {
 
         this.name = builder.name;
-        this.birthday = builder.birthday;
-        this.sexCode = builder.sexCode;
         this.email = builder.email;
-        this.tel = builder.tel;
-        this.addressNum = builder.addressNum;
+        this.telNo = builder.telNo;
+        this.postalCode = builder.postalCode;
+        this.region = builder.region;
+        this.locality = builder.locality;
     }
 
     public static class Builder {
 
         private final String name;
-        private final LocalDate birthday;
+        private final String email;
 
-        public Builder(String name, LocalDate birthday) {
+        public Builder(String name, String email) {
             this.name = name;
-            this.birthday = birthday;
-        }
-
-        private int sexCode = 0;
-        private String email = "";
-        private String tel = "";
-        private String addressNum = "";
-
-        public Builder sexCode(int sexCode) {
-            this.sexCode = sexCode;
-            return this;
-        }
-
-        public Builder email(String email) {
             this.email = email;
+        }
+
+        private String telNo = "";
+        private String postalCode = "";
+        private String region = "";
+        private String locality = "";
+
+        public Builder telNo(String telNo) {
+            this.telNo = telNo;
             return this;
         }
 
-        public Builder tel(String tel) {
-            this.tel = tel;
+        public Builder postalCode(String postalCode) {
+            this.postalCode = postalCode;
             return this;
         }
 
-        public Builder addressNum(String addressNum) {
-            this.addressNum = addressNum;
+        public Builder region(String region) {
+            this.region = region;
+            return this;
+        }
+
+        public Builder locality(String locality) {
+            this.locality = locality;
             return this;
         }
 
         public Person build() {
+
+            if (!postalCode.isBlank() &&
+                    (region.isBlank() || locality.isBlank()))
+                throw new IllegalStateException();
+
             return new Person(this);
         }
 

@@ -1,41 +1,31 @@
 package jp.example.obj_lifecycle.builder.javabeans;
 
-import java.time.LocalDate;
-
 import lombok.EqualsAndHashCode;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-@RequiredArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Person {
+class Person {
 
     private final String name;
-    private final LocalDate birthday;
+    private final String email;
 
-    private int sexCode = 0;
-    private String email = "";
-    private String tel = "";
-    private String addressNum = "";
+    private String telNo = "";
+    private String postalCode = "";
 
-    public Person sexCode(int sexCode) {
-        this.sexCode = sexCode;
-        return this;
-    }
-
-    public Person email(String email) {
+    public Person(String name, String email) {
+        this.name = name;
         this.email = email;
+    }
+
+    public Person telNo(String telNo) {
+        this.telNo = telNo;
         return this;
     }
 
-    public Person tel(String tel) {
-        this.tel = tel;
+    public Person postalCode(String postalCode) {
+        this.postalCode = postalCode;
         return this;
     }
 
-    public Person addressNum(String addressNum) {
-        this.addressNum = addressNum;
-        return this;
-    }
 }
