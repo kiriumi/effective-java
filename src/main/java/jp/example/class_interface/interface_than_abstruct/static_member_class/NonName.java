@@ -1,6 +1,10 @@
 package jp.example.class_interface.interface_than_abstruct.static_member_class;
 
-public interface NonName {
+abstract class NonName {
 
-    void hello();
+    abstract void hello();
+
+    static void helloStatic() {
+        System.out.println("静的メソッド");
+    }
 }

@@ -12,28 +12,37 @@ class EnclosingClass {
     /**
      * 無名クラス
      *
-     * インスタンスが「１メソッド」内の「１箇所のみ」必要な場合使用する
+     * インターフェースや抽象クラスの抽象メソッドを、その場限りの実装をする場合、使用する
      * ※クラスの定義が長い場合は、メンバークラスにする
      */
     void useNonNameClass() {
 
-        final String tag = "無名クラス";
+        final String tag = "無名クラス：";
 
-        final NonName task = () -> {
+        final NonName nonName = new NonName() {
 
-            System.out.println(tag);
+            static String staticField = "staticフィールド値";
+            String field = "フィールド値";
 
-            System.out.println(ENCLOSING_CONST);
-            System.out.println(enclosingField);
-            enclosingMethod();
+            @Override
+            void hello() {
+
+                System.out.println(tag + field);
+                System.out.println(tag + staticField);
+
+                System.out.println(ENCLOSING_CONST);
+                System.out.println(enclosingField);
+                enclosingMethod();
+            }
+
         };
-        task.hello();
+        nonName.hello();
     }
 
     /**
      * ローカルクラス
      *
-     * インスタンスが「１メソッド」内の「複数箇所」必要な場合使用する
+     * １メソッド内でのみ使用するクラスが欲しい場合、使用する
      * ※クラスの定義が長い場合は、メンバークラスにする
      */
     void useLocalClass() {
@@ -42,6 +51,7 @@ class EnclosingClass {
 
         class LocalClass {
 
+            static String staticField = "staticフィールド値";
             String field = "フィールド値";
 
             LocalClass(String field) {
@@ -49,46 +59,71 @@ class EnclosingClass {
             }
 
             void hello() {
-                System.out.println(tag + field);
+
+                System.out.println(tag + field + "のフィールド値");
+                System.out.println(tag + staticField);
 
                 System.out.println(ENCLOSING_CONST);
                 System.out.println(enclosingField);
                 enclosingMethod();
             }
+
+            static void helloStatic() {
+                System.out.println("静的メソッド");
+
+                // ↓はインスタンスメンバーのため使用できない
+                // System.out.println(field);
+                // System.out.println(enclosingField);
+                // enclosingMethod();
+            }
         }
 
         final LocalClass localA = new LocalClass("A");
         localA.hello();
+        LocalClass.helloStatic();
 
         System.out.println("--------");
 
         final LocalClass localB = new LocalClass("B");
         localB.hello();
+        LocalClass.helloStatic();
     }
 
     void useNonStaticClass() {
 
         final NonStaticMemberClass nonStatic = new NonStaticMemberClass();
         nonStatic.hello();
+        NonStaticMemberClass.helloStatic();
     }
 
     /**
      * 非staticなメンバークラス
      *
-     * インスタンスが「複数メソッド」で必要かつ「エンクロージングクラスのインスタンスを使う」場合使用する
+     * インスタンスを「複数メソッド」で使用かつ「エンクロージングクラスのインスタンスを使う」場合、使用する
      * ※本クラスをインスタンス化するとエンクロージングクラスを自動的に参照し、メモリリークを起こす可能性があるので注意
      */
     class NonStaticMemberClass {
 
-        final String tag = "非staticなメンバークラス";
+        static String staticField = "staticフィールド値";
+        final String tag = "非staticなメンバークラス：";
 
         void hello() {
 
             System.out.println(tag);
+            System.out.println(tag + staticField);
 
             System.out.println(ENCLOSING_CONST);
             System.out.println(enclosingField);
             enclosingMethod();
+        }
+
+        static void helloStatic() {
+            System.out.println("静的メソッド");
+
+            // ↓はインスタンスメンバーのため使用できない
+            // System.out.println(field);
+            // System.out.println(enclosingField);
+            // enclosingMethod();
         }
 
     }
@@ -97,27 +132,37 @@ class EnclosingClass {
 
         final StaticMemberClass staticClass = new StaticMemberClass();
         staticClass.hello();
+        StaticMemberClass.helloStatic();
     }
 
     /**
      * staticなメンバークラス
      *
-     * インスタンスが「複数メソッド」で必要かつ「エンクロージングクラス」のインスタンスを使わない」場合使用する
+     * インスタンスを「複数メソッド」で使用かつ「エンクロージングクラスのインスタンスを使わない」場合、使用する
      *
      */
     static class StaticMemberClass {
 
-        final String tag = "staticなメンバークラス";
+        static String staticField = "staticフィールド値";
+        final String tag = "staticなメンバークラス：";
 
         void hello() {
 
             System.out.println(tag);
+            System.out.println(tag + staticField);
 
             System.out.println(ENCLOSING_CONST);
 
-            // エンクロージングのインスタンスフィールド・メソッドは使用できない
+            // エンクロージングのインスタンスメンバーは使用できない
             // System.out.println(enclosingField);
             // enclosingMethod();
+        }
+
+        static void helloStatic() {
+            System.out.println("静的メソッド");
+
+            // ↓はインスタンスメンバーのため使用できない
+            // System.out.println(field);
         }
     }
 
