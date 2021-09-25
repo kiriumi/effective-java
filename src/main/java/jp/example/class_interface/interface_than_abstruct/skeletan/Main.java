@@ -7,8 +7,8 @@ public class Main {
         final Concrete concrete = new Concrete();
         concrete.main();
 
-        concrete.setField("フィールド値");
         System.out.println(concrete.toString());
+        System.out.println(concrete.getField()); // 同名のフィールド名：子クラス＞親クラス
     }
 
 }

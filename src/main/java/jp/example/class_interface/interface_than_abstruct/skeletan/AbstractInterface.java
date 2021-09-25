@@ -2,7 +2,6 @@ package jp.example.class_interface.interface_than_abstruct.skeletan;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 // Objectクラスのメソッドをオーバーライドする場合は、骨格実装する
@@ -12,8 +11,10 @@ public abstract class AbstractInterface {
 
     // フィールドを定義する場合も、骨格実装する
     @Getter
-    @Setter
-    private String field;
+    private final String field = "骨格実装クラスのフィールド値";
+
+    @Getter
+    private final String abstractField = "フィールド値";
 
     protected void main() {
         start();
