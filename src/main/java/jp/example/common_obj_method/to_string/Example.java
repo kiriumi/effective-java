@@ -8,7 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @ToString
-class Hoge {
+class Example {
 
     // 定数はToStringで表示されないので注意
     public static final String CONST = "定数";
