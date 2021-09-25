@@ -2,7 +2,8 @@ package jp.example.class_interface.interface_than_abstruct.interface_default;
 
 interface ImplSupport {
 
-    static String CONST = "定数";
+    // public static final と同じ扱い
+    String CONST = "定数";
 
     default void main() {
         start();
