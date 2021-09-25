@@ -1,4 +1,4 @@
-package jp.example.generics.generics.generic_singleton_factory;
+package jp.example.generics.generic_method.generic_singleton_factory;
 
 import java.util.function.Consumer;
 

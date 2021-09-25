@@ -1,4 +1,4 @@
-package jp.example.generics.generics.recursive;
+package jp.example.generics.generic_method.recursive;
 
 import lombok.Value;
 

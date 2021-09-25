@@ -1,8 +1,8 @@
-package jp.example.generics.generics;
+package jp.example.generics.generic_type;
 
 import java.util.List;
 
-class GenericsClass<T extends SupperClass> {
+class GenericsClass<T> {
 
     private T field;
     private T[] array;

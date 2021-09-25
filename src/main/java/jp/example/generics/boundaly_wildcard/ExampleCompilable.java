@@ -1,11 +1,11 @@
-package jp.example.generics.generics;
+package jp.example.generics.boundaly_wildcard;
 
 import java.util.List;
 import java.util.Map;
 
 import jp.example.class_interface.composition.SuperClass;
 
-class Example {
+class ExampleCompilable {
 
     // 仮型パラメータ ----------------
     // ・宣言が必要
@@ -29,25 +29,25 @@ class Example {
         return value;
     }
 
-    // 上限境界
-    <T extends SupperClass> T dummyParamExtends(T value) {
+    // 上限境界（スーパークラス）
+    <T extends SuperClass> T dummyParamExtends(T value) {
         return value;
     }
 
+    // 上限境界（インターフェース）
     <T extends Interface> T dummyParamExtendsIf(T value) {
         return value;
     }
 
-    <T extends SupperClass> List<T> genericsListExtends(List<T> value) {
+    // 上限境界（上限を仮型パラメータで指定）
+    // ※コンパイルエラーにはならないが、Uを指定できないので実用性はない
+    <T extends U, U> T dummyParamExtendsDummy(T value) {
         return value;
     }
 
-    <T extends SupperClass> T[] genericsArrayExtends(@SuppressWarnings("unchecked") T... value) {
-        return value;
-    }
-
-    <T, U extends Number> T dummyParamExtends(T value, U number) {
-        return value;
+    // 複数の仮型パラメータを指定
+    <T, U extends Number> Map<T, U> multiDuummyParams(T value, U number) {
+        return Map.of(value, number);
     }
 
     // ワイルドカード型 ----------------
@@ -61,35 +61,34 @@ class Example {
         return value;
     }
 
-    // 上限境界
+    // 上限境界（スーパークラス）
+    // ※戻り値に境界ワイルドカードはアンチパターンなので注意
     List<? extends SuperClass> wildcardExtends(List<? extends SuperClass> value) {
         return value;
     }
 
+    // 上限境界（インターフェース）
+    // ※戻り値に境界ワイルドカードはアンチパターンなので注意
     List<? extends Interface> wildcardExtendsIf(List<? extends Interface> value) {
         return value;
     }
 
-    Map<?, ? extends Number> wildcardMap(Map<?, ? extends Number> value) {
-        return value;
-    }
-
-    // 下限境界（使うことはほとんどないと思われる）
+    // 下限境界（サブクラス）
+    // ※戻り値に境界ワイルドカードはアンチパターンなので注意
     List<? super SubClass> wildcardSuper(List<? super SubClass> value) {
         return value;
     }
 
+    // 下限境界（インターフェース）
+    // ※戻り値に境界ワイルドカードはアンチパターンなので注意
     List<? super Interface> wildcardSuperIf(List<? super Interface> value) {
         return value;
     }
 
-    // ワイルドカード型での変数格納受け取り用
-    List<Number> numberList() {
-        return List.of(1, 2, 3);
-    }
-
-    List<?> wildcardList() {
-        return List.of(1, 2, 3);
+    // 複数のワイルドカードを使用
+    // ※戻り値に境界ワイルドカードはアンチパターンなので注意
+    Map<?, ? extends Number> multiWildcards(Map<?, ? extends Number> value) {
+        return value;
     }
 
 }
