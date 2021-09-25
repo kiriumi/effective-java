@@ -1,0 +1,1 @@
+package jp.example.class_interface.interface_than_abstruct;
