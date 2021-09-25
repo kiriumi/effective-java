@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        final Hoge hoge = new Hoge();
+        final Example hoge = new Example();
 
         hoge.setNum(1);
         hoge.setStr("変数１");
