@@ -13,7 +13,11 @@ public class Main {
         final List<Integer> fromList = List.of(1, 2, 3, 4, 5);
 
         final List<Integer> ngList = new ArrayList<>();
-        fromList.forEach(ngList::add); // ストリームパイプラインの外側の変数を変更している
+        fromList.forEach(x -> {
+            if (x % 2 == 0) {
+                ngList.add(x); // ストリームパイプラインの外側の変数を変更している
+            }
+        });
         ngList.forEach(System.out::println);
 
         System.out.println("----------------");
