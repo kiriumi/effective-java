@@ -15,6 +15,7 @@ enum Example implements Interface, Interface2 {
 
         @Override
         public void interfaceMethod() {
+            System.out.println("インターフェースメソッド１");
         }
 
         @Override

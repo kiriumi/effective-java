@@ -44,5 +44,9 @@ public class Main {
             default -> throw new IllegalArgumentException("Unexpected value:");
         }
 
+        // 実装してるインターフェースで受け取れる
+        final Interface ex = Example.ONE;
+        ex.interfaceMethod();
+
     }
 }
