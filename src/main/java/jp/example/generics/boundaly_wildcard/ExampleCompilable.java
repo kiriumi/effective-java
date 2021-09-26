@@ -3,8 +3,6 @@ package jp.example.generics.boundaly_wildcard;
 import java.util.List;
 import java.util.Map;
 
-import jp.example.class_interface.composition.SuperClass;
-
 class ExampleCompilable {
 
     // 仮型パラメータ ----------------
