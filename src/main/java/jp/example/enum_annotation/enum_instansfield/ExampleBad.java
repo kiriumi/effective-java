@@ -1,6 +1,6 @@
 package jp.example.enum_annotation.enum_instansfield;
 
-public enum ExampleBad {
+enum ExampleBad {
 
     SOLO, DUET, TRIO;
 
