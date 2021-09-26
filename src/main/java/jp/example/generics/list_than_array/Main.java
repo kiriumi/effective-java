@@ -28,7 +28,7 @@ public class Main {
     static <E> void genericArray() {
         // List<String>[] genList = new ArrayList<String>[3]; // コンパイルエラー
         // List<E>[] genList = new ArrayList<E>[3]; // コンパイルエラー
-        // E[] genArray = new E[3]; // コンパイルエラー
+        // final E[] genArray = new E[3]; // コンパイルエラー
     }
 
 }
