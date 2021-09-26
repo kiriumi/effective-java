@@ -1,11 +1,11 @@
-package jp.example.enum_annotation.enummap;
+package jp.example.enum_annotation.enum_map;
 
 import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import jp.example.enum_annotation.enummap.Student.Gread;
+import jp.example.enum_annotation.enum_map.Student.Gread;
 
 public class Main {
 

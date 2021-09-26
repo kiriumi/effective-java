@@ -1,4 +1,4 @@
-package jp.example.enum_annotation.enummap;
+package jp.example.enum_annotation.enum_map;
 
 import lombok.ToString;
 

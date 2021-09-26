@@ -1,8 +1,8 @@
-package jp.example.enum_annotation.enumset;
+package jp.example.enum_annotation.enum_set;
 
 import java.util.EnumSet;
 
-import jp.example.enum_annotation.enumset.Example.Style;
+import jp.example.enum_annotation.enum_set.Example.Style;
 
 public class Main {
 

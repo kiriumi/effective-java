@@ -1,4 +1,4 @@
-package jp.example.enum_annotation.enumset;
+package jp.example.enum_annotation.enum_set;
 
 class Example {
 
