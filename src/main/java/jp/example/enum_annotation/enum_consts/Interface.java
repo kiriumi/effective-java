@@ -1,6 +1,6 @@
 package jp.example.enum_annotation.enum_consts;
 
-public interface Interface {
+interface Interface {
 
     void interfaceMethod();
 }
