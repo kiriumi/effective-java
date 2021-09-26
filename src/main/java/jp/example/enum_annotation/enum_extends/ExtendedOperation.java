@@ -1,19 +1,20 @@
 package jp.example.enum_annotation.enum_extends;
 
+import java.util.function.DoubleBinaryOperator;
+
 enum ExtendedOperation implements Operation {
 
-    TIMES {
-        @Override
-        public double apply(double x, double y) {
-            return x * y;
-        }
-    },
+    TIMES((x, y) -> x * y), DEVIDE((x, y) -> x / y);
 
-    DEVIDE {
-        @Override
-        public double apply(double x, double y) {
-            return x / y;
-        }
-    };
+    private DoubleBinaryOperator operator;
+
+    ExtendedOperation(DoubleBinaryOperator operator) {
+        this.operator = operator;
+    }
+
+    @Override
+    public double apply(double x, double y) {
+        return operator.applyAsDouble(x, y);
+    }
 
 }
